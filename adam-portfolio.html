@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Adam Alshenawy | Data Analyst & AI Automation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0a;
+  --bg2:#111111;
+  --bg3:#181818;
+  --accent:#b8f564;
+  --accent2:#7be0a8;
+  --text:#f0ede8;
+  --muted:#8a8680;
+  --border:#2a2a2a;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden}
+
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.4}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.04)}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;letter-spacing:-0.5px;color:var(--text);text-decoration:none}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:36px;list-style:none;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.3px;transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cv{background:var(--accent);color:#0a0a0a!important;padding:8px 18px;border-radius:6px;font-weight:700!important;font-family:'Syne',sans-serif;transition:all 0.2s!important}
+.nav-cv:hover{background:#caf87a!important;transform:translateY(-1px)}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 60px 80px;position:relative;overflow:hidden}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 400px;gap:80px;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(184,245,100,0.08);border:1px solid rgba(184,245,100,0.2);border-radius:100px;padding:6px 16px;font-size:13px;color:var(--accent);font-weight:500;margin-bottom:28px;letter-spacing:0.3px}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(42px,5vw,68px);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:12px}
+.hero h1 .line2{color:var(--accent);display:block}
+.hero-sub{font-size:17px;color:var(--muted);font-weight:400;margin-bottom:36px;letter-spacing:0.2px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.hero-social{display:flex;gap:10px;flex-wrap:wrap}
+
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#0a0a0a;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;font-family:'Syne',sans-serif;transition:all 0.2s;letter-spacing:-0.2px}
+.btn-primary:hover{background:#caf87a;transform:translateY(-1px)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:500;font-size:15px;border:1px solid var(--border);transition:all 0.2s}
+.btn-secondary:hover{border-color:var(--muted);background:rgba(255,255,255,0.03)}
+.btn-social{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);color:var(--muted);padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:500;font-size:13px;border:1px solid var(--border);transition:all 0.2s}
+.btn-social:hover{background:rgba(255,255,255,0.09);color:var(--text);border-color:rgba(255,255,255,0.15)}
+.btn-social svg{width:16px;height:16px;flex-shrink:0}
+
+/* Hero photo */
+.hero-photo-wrap{position:relative;display:flex;justify-content:center}
+.hero-photo-bg{position:absolute;inset:-12px;border-radius:28px;background:linear-gradient(135deg,rgba(184,245,100,0.15),rgba(123,224,168,0.05));z-index:0}
+.hero-photo{width:340px;height:420px;object-fit:cover;object-position:top;border-radius:24px;display:block;filter:grayscale(10%);position:relative;z-index:1}
+
+/* Value props */
+.value-props{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:80px;padding:0 0 20px}
+.vp-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:28px 24px;position:relative;overflow:hidden;transition:border-color 0.2s,transform 0.2s}
+.vp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transition:transform 0.3s;transform-origin:left}
+.vp-card:hover{border-color:rgba(184,245,100,0.25);transform:translateY(-3px)}
+.vp-card:hover::before{transform:scaleX(1)}
+.vp-icon{font-size:28px;margin-bottom:16px;display:block}
+.vp-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:10px;letter-spacing:-0.3px}
+.vp-desc{color:var(--muted);font-size:14px;line-height:1.65;font-weight:300}
+
+/* Section */
+section{padding:100px 60px;max-width:1200px;margin:0 auto}
+.section-label{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(32px,4vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px}
+.section-subtitle{color:var(--muted);font-size:17px;max-width:560px;line-height:1.7;font-weight:300}
+
+/* Projects */
+.projects-list{display:flex;flex-direction:column;gap:32px;margin-top:56px}
+.project-card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all 0.3s;display:grid;grid-template-columns:1fr 1fr;align-items:start}
+.project-card:hover{border-color:rgba(184,245,100,0.25);box-shadow:0 24px 64px rgba(0,0,0,0.4)}
+.project-card:nth-child(even){grid-template-columns:1fr 1fr;direction:ltr}
+.project-media{background:var(--bg3);min-height:280px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.project-media-inner{width:100%;height:100%;min-height:280px;display:flex;align-items:center;justify-content:center;font-size:80px;background:linear-gradient(135deg,var(--bg3),var(--bg)}
+.project-media img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.project-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:280px;gap:12px;padding:32px}
+.project-placeholder-icon{font-size:56px;opacity:0.6}
+.project-placeholder-label{font-size:12px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;font-weight:500}
+.project-info{padding:36px 40px;display:flex;flex-direction:column;gap:0}
+.project-type{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.project-title{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;letter-spacing:-0.5px;margin-bottom:14px;line-height:1.2}
+.project-desc{color:var(--muted);font-size:15px;line-height:1.75;font-weight:300;margin-bottom:20px}
+.project-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+.project-tag{background:rgba(255,255,255,0.05);border-radius:6px;padding:5px 12px;font-size:12px;color:var(--muted);border:1px solid var(--border)}
+.project-links{display:flex;gap:10px;flex-wrap:wrap}
+.proj-link{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.2s;font-family:'Syne',sans-serif}
+.proj-link.live{background:var(--accent);color:#0a0a0a}
+.proj-link.live:hover{background:#caf87a}
+.proj-link.github{background:rgba(255,255,255,0.06);color:var(--text);border:1px solid var(--border)}
+.proj-link.github:hover{background:rgba(255,255,255,0.1)}
+
+/* Skills */
+.skills-wrap{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.skill-group{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:28px 32px}
+.skill-group-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+.skill-tag{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:100px;padding:7px 16px;font-size:13px;color:var(--text);font-weight:400;transition:all 0.2s}
+.skill-tag:hover{background:rgba(184,245,100,0.08);border-color:rgba(184,245,100,0.3);color:var(--accent)}
+
+/* Education */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:56px}
+.edu-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:28px 32px;transition:border-color 0.2s}
+.edu-card:hover{border-color:rgba(184,245,100,0.2)}
+.edu-degree{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:4px}
+.edu-school{color:var(--accent);font-size:14px;font-weight:500;margin-bottom:8px}
+.edu-detail{color:var(--muted);font-size:13px;line-height:1.6}
+.edu-date{font-size:12px;color:var(--muted);margin-top:12px;font-weight:500}
+
+/* Calendar / Schedule */
+.cal-wrap{margin-top:56px;background:var(--bg2);border:1px solid var(--border);border-radius:24px;overflow:hidden}
+.cal-header{padding:48px 56px 32px;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+.cal-header-text h3{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-1px;margin-bottom:8px}
+.cal-header-text p{color:var(--muted);font-size:15px;max-width:400px;font-weight:300}
+#cal-embed-container{border-radius:12px;overflow:hidden;min-height:600px}
+
+/* Contact */
+.contact-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:24px;padding:64px;text-align:center;margin-top:32px;position:relative;overflow:hidden}
+.contact-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center top,rgba(184,245,100,0.06),transparent 70%);pointer-events:none}
+.contact-wrap h2{font-family:'Syne',sans-serif;font-size:38px;font-weight:800;letter-spacing:-1.5px;margin-bottom:14px}
+.contact-wrap p{color:var(--muted);font-size:16px;max-width:480px;margin:0 auto 36px;font-weight:300}
+.contact-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* Footer */
+footer{border-top:1px solid var(--border);padding:32px 60px;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px;max-width:1300px;margin:0 auto}
+
+/* Animate */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* Glow */
+.hero-glow{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(184,245,100,0.06) 0%,transparent 70%);top:-100px;right:-100px;pointer-events:none}
+
+/* Placeholders for project images — gradient covers */
+.proj-cover-1{background:linear-gradient(135deg,#0d1f0d 0%,#1a3a1a 40%,#0a2010 100%)}
+.proj-cover-2{background:linear-gradient(135deg,#0a0a1f 0%,#1a1a40 40%,#080820 100%)}
+.proj-cover-3{background:linear-gradient(135deg,#1f0a0a 0%,#3a1a1a 40%,#200808 100%)}
+.proj-cover-4{background:linear-gradient(135deg,#0d0d1f 0%,#1a2040 40%,#080a20 100%)}
+.proj-cover-5{background:linear-gradient(135deg,#1f1a0a 0%,#3a3010 40%,#201808 100%)}
+.proj-cover-6{background:linear-gradient(135deg,#0a1a1f 0%,#10303a 40%,#081520 100%)}
+
+/* Mockup frame inside placeholder */
+.mockup-frame{width:85%;max-width:320px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px;font-size:12px;font-family:monospace}
+.mockup-topbar{display:flex;gap:6px;margin-bottom:14px}
+.mockup-dot{width:9px;height:9px;border-radius:50%}
+.mockup-dot:nth-child(1){background:#ff5f57}
+.mockup-dot:nth-child(2){background:#ffbd2e}
+.mockup-dot:nth-child(3){background:#28c840}
+.mockup-row{height:6px;border-radius:3px;background:rgba(255,255,255,0.06);margin-bottom:8px}
+.mockup-row.accent{background:rgba(184,245,100,0.25);width:60%}
+.mockup-row.short{width:40%}
+.mockup-row.mid{width:75%}
+.mockup-chart{height:60px;display:flex;align-items:flex-end;gap:4px;margin-top:14px}
+.mockup-bar{flex:1;border-radius:3px 3px 0 0;background:rgba(184,245,100,0.2)}
+.mockup-bar.hi{background:rgba(184,245,100,0.5)}
+
+@media(max-width:1000px){
+  nav{padding:18px 24px}
+  .hero{padding:100px 24px 60px}
+  .hero-inner{grid-template-columns:1fr;gap:48px}
+  .hero-photo{width:260px;height:320px}
+  section{padding:64px 24px}
+  .skills-wrap,.edu-grid{grid-template-columns:1fr}
+  .project-card{grid-template-columns:1fr!important;direction:ltr!important}
+  .project-media{min-height:220px}
+  .project-info{padding:28px}
+  .value-props{grid-template-columns:1fr}
+  .contact-wrap{padding:40px 24px}
+  .cal-header{padding:32px 28px 24px;flex-direction:column;align-items:flex-start}
+  footer{padding:24px;flex-direction:column;gap:12px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Adam<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#schedule">Schedule a Call</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://drive.google.com/uc?export=download&id=YOUR_CV_FILE_ID" target="_blank" class="nav-cv" download>Download CV ↓</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Available for opportunities</div>
+      <h1>Adam Alshenawy<span class="line2">Data Analyst &amp; AI</span></h1>
+      <p class="hero-sub">Turning messy data into clear decisions — and manual work into automated profit.</p>
+      <div class="hero-cta">
+        <a href="https://drive.google.com/uc?export=download&id=YOUR_CV_FILE_ID" target="_blank" class="btn-primary" download>Download CV ↓</a>
+        <a href="#projects" class="btn-secondary">View Projects ↓</a>
+      </div>
+      <div class="hero-social">
+        <a href="https://www.linkedin.com/in/adam-alshenawy-600b41267/" target="_blank" class="btn-social">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank" class="btn-social">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.972 2C6.465 2 2 6.465 2 11.972c0 1.93.55 3.73 1.497 5.262L2 22l4.9-1.476A9.958 9.958 0 0011.972 22C17.48 22 22 17.535 22 12.028 22 6.52 17.48 2 11.972 2zm0 18.157a8.18 8.18 0 01-4.47-1.32l-.32-.19-3.315.999.974-3.228-.207-.33a8.154 8.154 0 01-1.263-4.388c0-4.524 3.682-8.205 8.2-8.205 4.519 0 8.2 3.681 8.2 8.205 0 4.523-3.681 8.457-8.199 8.457z"/></svg>
+          WhatsApp
+        </a>
+        <a href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank" class="btn-social">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Telegram
+        </a>
+        <a href="https://github.com/adamalshenawy" target="_blank" class="btn-social">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-bg"></div>
+      <img src="data:image/jpeg;base64,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HNFBoATNGaBz0ooASjqaXHFN+lADu9HFNxRnigBTSUuKSgAIxRRmigAopD1pMYNADqKBRQAc0H9aM0ZoADzRiiloASiiigAooooAKKKKACigUUALSUuaSgBcCikA96Me9ABmjgniiigAPFHUUhFGeKAAUpoFFABngUmMdaTaSaceetACYo7UufWkoAM4FIevtRnAoz2HNACqc9+KMdeaTIz0xS5FAB2464651p2eaaciloAcvQ9qXo1RBsc1Khz2oAOlLSDpS80ALRSAmlHWgAAzRkUtJQAtLSCloAbijFO4pMUAIRgUoFJS5oAQCnUlLQAUUUlACgZ44q0LRQvzc1JaWbPirgtiF54oAzjahs7adHCvfpV94CpwRTBGAc9KAMjUG8tCo+le/fB9Qnhm0JHzP8Avc14V4mt1TLha9p+EMjr4UtFP8IJFaU/iIqbHpVr0q6EFUbXgVeBoJLCjFSITiqyt71Ij5oAljPNPb7o9KiVuKlxuSgCqU+cZoLHNSlMHimsM0gKkxHTtVFkO7irswIFVSPmoAmtskYqwq8c1Xt2GRmrkZBouBETtJ4oU56VLIoJ6UiqAaAI8e9PHSkzk0oFABniiikoAOtFJRmgBaKSlzQACl70nfFBPagBcijrScUn4UAHY0UdKSgBf60nWj8KOKADNGaB1oHHNAADkClFJ0pW46dqAEdipG3rVtL1oUAJOCOwqoGxikJoA6KDWJoypEjdParR8RXhj2b+lchkjPIokkZlIJNA2P1aZ7u5Z3c5JJNZ+0jHFTy9z71EPWgCdCPWn7uM1WD88in789qAHtxniomzkmneoxQAzPenBge9JkUmaAJEPPWrljJsubZxjKyCst2AHFWbNiGjYdmBpDPRz3p6nNMU5Ap68ikBID3pWoFBPFABjIpAB6UA0DrQAlFFA9qQC0opueaBnFADhRk96bS0APycUhOOabnml60AHNFIMilOOtABj0pM0oOKiluI4+OSegFAFPxBrllomkvd38hjjUHgDJJ9BXgXjP4h6j4hnkitme2sT0iDc49T61Z+IHiufWtUe1jlK2MR2qoP3j6muKb72e1MRraBOxumLsdoGTzXb20oYIfbivPdIaQXB2jk9K6dJGC7S2RjINJoqMjanOV5qILk1EJCMYqYEHvWZsLjnrUijHBqIDvmpVJ4x2piE24P0pRwecUua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" class="hero-photo" alt="Adam Alshenawy"/>
+    </div>
+  </div>
+</div>
+
+<!-- Value Props (below hero, full width) -->
+<div style="max-width:1200px;margin:0 auto;padding:0 60px 80px">
+  <div class="value-props">
+    <div class="vp-card fade-up">
+      <span class="vp-icon">📈</span>
+      <div class="vp-title">ROI-First Thinking</div>
+      <div class="vp-desc">Every project is evaluated on one metric: does it make or save money? I engineer data solutions that slash operational costs and turn manual overhead into measurable profit.</div>
+    </div>
+    <div class="vp-card fade-up">
+      <span class="vp-icon">🤖</span>
+      <div class="vp-title">AI Agent Architecture</div>
+      <div class="vp-desc">I build autonomous agents that don't just respond — they think, decide, and execute. From CRM updates to contract generation, the machine handles it end-to-end.</div>
+    </div>
+    <div class="vp-card fade-up">
+      <span class="vp-icon">⚙️</span>
+      <div class="vp-title">Scalable Pipelines</div>
+      <div class="vp-desc">Clean architecture that grows with you. I design data workflows and automation stacks using enterprise-grade tools — built for reliability, not just demos.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Projects -->
+<section id="projects">
+  <div class="section-label fade-up">Work</div>
+  <h2 class="section-title fade-up">Featured Projects</h2>
+  <p class="section-subtitle fade-up">Real solutions deployed to solve real business problems — from pipeline visibility to AI-powered automation.</p>
+
+  <div class="projects-list">
+
+    <!-- Project 1 -->
+    <div class="project-card fade-up">
+      <div class="project-media proj-cover-1">
+        <div class="project-placeholder">
+          <div class="mockup-frame">
+            <div class="mockup-topbar"><div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div></div>
+            <div class="mockup-row accent"></div>
+            <div class="mockup-row mid"></div>
+            <div class="mockup-row short"></div>
+            <div class="mockup-row"></div>
+            <div class="mockup-row mid"></div>
+            <div class="mockup-chart">
+              <div class="mockup-bar" style="height:40%"></div>
+              <div class="mockup-bar hi" style="height:75%"></div>
+              <div class="mockup-bar" style="height:55%"></div>
+              <div class="mockup-bar hi" style="height:90%"></div>
+              <div class="mockup-bar" style="height:60%"></div>
+              <div class="mockup-bar" style="height:45%"></div>
+              <div class="mockup-bar hi" style="height:80%"></div>
+            </div>
+          </div>
+          <div class="project-placeholder-label">Power BI Dashboard</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-type">Power BI · DAX · Data Modeling</div>
+        <div class="project-title">Sales Pipeline Dashboard</div>
+        <div class="project-desc">Pipeline data buried in CRMs made it impossible to see where leads dropped. Built a 9-page interactive Power BI dashboard tracking every client's journey — from fresh leads to closed deals. Measures four conversion gaps, flags when dropped leads exceed 40%, and enables drill-through analysis per agent.</div>
+        <div class="project-tags">
+          <span class="project-tag">Power BI</span><span class="project-tag">DAX</span><span class="project-tag">Data Modeling</span><span class="project-tag">Sales Analytics</span><span class="project-tag">KPI Tracking</span>
+        </div>
+        <div class="project-links">
+          <a href="https://app.powerbi.com/view?r=eyJrIjoiNWQ4MzdmN2MtY2U5Ny00NDE1LTljODAtMGM0ZmFmOGQ5ZWY1IiwidCI6ImU3ZTkxMDI3LTk2NTEtNDMxYS04ZWY3LWQyZjI5MWNhODIyMCJ9" target="_blank" class="proj-link live">Live Demo ↗</a>
+          <a href="https://github.com/adamalshenawy/sales-pipeline-dashboard" target="_blank" class="proj-link github">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card fade-up">
+      <div class="project-info">
+        <div class="project-type">n8n · Telegram API · Automation</div>
+        <div class="project-title">Speed to Lead (STL)</div>
+        <div class="project-desc">Manual campaign tracking caused delayed lead assignments and high risk of missed opportunities. Built a Telegram bot that instantly detects new leads, notifies managers, routes them to agents in one tap, and timestamps all assignments to prevent duplicates — response time dropped to near zero.</div>
+        <div class="project-tags">
+          <span class="project-tag">Telegram Bot</span><span class="project-tag">n8n</span><span class="project-tag">Lead Distribution</span><span class="project-tag">Automation</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/adamalshenawy" target="_blank" class="proj-link github">GitHub</a>
+        </div>
+      </div>
+      <div class="project-media proj-cover-2">
+        <div class="project-placeholder">
+          <div style="font-size:64px;margin-bottom:16px">⚡</div>
+          <div class="project-placeholder-label">Lead Routing Bot</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card fade-up">
+      <div class="project-media proj-cover-3">
+        <div class="project-placeholder">
+          <div style="font-size:64px;margin-bottom:16px">🎙️</div>
+          <div class="project-placeholder-label">AI Call Analysis</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-type">AI · n8n · CRM Automation</div>
+        <div class="project-title">Call Categorization Catalog</div>
+        <div class="project-desc">Sales agents manually updating CRM stages introduced human bias and inconsistency. Built an AI engine that transcribes recorded audio, analyses conversations for buying signals, and automatically classifies and updates CRM stages — delivering zero human bias in data and freeing agent time.</div>
+        <div class="project-tags">
+          <span class="project-tag">AI/LLM</span><span class="project-tag">CRM</span><span class="project-tag">Speech-to-Text</span><span class="project-tag">n8n</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/adamalshenawy" target="_blank" class="proj-link github">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="project-card fade-up">
+      <div class="project-info">
+        <div class="project-type">AI · RAG · Telegram</div>
+        <div class="project-title">TM-RAG Agent</div>
+        <div class="project-desc">Dashboards show what's happening — this agent explains why. An intelligent Telegram assistant that reads manager queries about performance gaps, cross-references data with internal SDS stage logic, and generates structured root-cause diagnoses with actionable coaching steps.</div>
+        <div class="project-tags">
+          <span class="project-tag">RAG</span><span class="project-tag">AI Agent</span><span class="project-tag">Coaching</span><span class="project-tag">LLM</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/adamalshenawy" target="_blank" class="proj-link github">GitHub</a>
+        </div>
+      </div>
+      <div class="project-media proj-cover-4">
+        <div class="project-placeholder">
+          <div style="font-size:64px;margin-bottom:16px">🤖</div>
+          <div class="project-placeholder-label">RAG Coaching Agent</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 5 -->
+    <div class="project-card fade-up">
+      <div class="project-media proj-cover-5">
+        <div class="project-placeholder">
+          <div style="font-size:64px;margin-bottom:16px">📄</div>
+          <div class="project-placeholder-label">Contract Automation</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-type">AI · OCR · Document Automation</div>
+        <div class="project-title">AI Contract Assistant Bot</div>
+        <div class="project-desc">Creating a single contract required context-switching across multiple systems. Agent uploads a National ID photo to Telegram, AI extracts name/ID/address via OCR, verifies unit availability, merges data into templates, and delivers a finalized PDF — contract generation in under 60 seconds.</div>
+        <div class="project-tags">
+          <span class="project-tag">OCR</span><span class="project-tag">PDF Generation</span><span class="project-tag">n8n</span><span class="project-tag">Telegram</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/adamalshenawy" target="_blank" class="proj-link github">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 6 -->
+    <div class="project-card fade-up">
+      <div class="project-info">
+        <div class="project-type">Power BI · DAX · Banking</div>
+        <div class="project-title">Banking KPI Dashboard</div>
+        <div class="project-desc">Thesis project awarded Excellent at Galala University. Developed a Power BI dashboard monitoring banking KPIs including loan approval rates, transaction volumes, default risk, and customer segmentation — using simulated real-world data to surface actionable insights for management.</div>
+        <div class="project-tags">
+          <span class="project-tag">Power BI</span><span class="project-tag">DAX</span><span class="project-tag">Banking Analytics</span><span class="project-tag">Thesis</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/adamalshenawy" target="_blank" class="proj-link github">GitHub</a>
+        </div>
+      </div>
+      <div class="project-media proj-cover-6">
+        <div class="project-placeholder">
+          <div class="mockup-frame">
+            <div class="mockup-topbar"><div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div></div>
+            <div class="mockup-row accent"></div>
+            <div class="mockup-row mid"></div>
+            <div class="mockup-row short"></div>
+            <div class="mockup-chart">
+              <div class="mockup-bar hi" style="height:65%"></div>
+              <div class="mockup-bar" style="height:45%"></div>
+              <div class="mockup-bar hi" style="height:88%"></div>
+              <div class="mockup-bar" style="height:50%"></div>
+              <div class="mockup-bar" style="height:70%"></div>
+              <div class="mockup-bar hi" style="height:95%"></div>
+            </div>
+          </div>
+          <div class="project-placeholder-label">Banking Dashboard</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <div class="section-label fade-up">Expertise</div>
+  <h2 class="section-title fade-up">Skills & Tools</h2>
+  <p class="section-subtitle fade-up">A full-stack data toolkit — from raw SQL queries to deployed AI agents.</p>
+  <div class="skills-wrap fade-up">
+    <div class="skill-group">
+      <div class="skill-group-title">Data Analysis</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Power BI</span><span class="skill-tag">DAX</span><span class="skill-tag">SQL</span><span class="skill-tag">Excel</span><span class="skill-tag">Tableau</span><span class="skill-tag">Python</span><span class="skill-tag">Pandas</span><span class="skill-tag">Data Modeling</span><span class="skill-tag">KPI Reporting</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">AI & Automation</div>
+      <div class="skill-tags">
+        <span class="skill-tag">n8n</span><span class="skill-tag">Make</span><span class="skill-tag">Manychat</span><span class="skill-tag">Telegram Bots</span><span class="skill-tag">RAG Pipelines</span><span class="skill-tag">AI Agents</span><span class="skill-tag">APIs</span><span class="skill-tag">OCR</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Databases & Dev</div>
+      <div class="skill-tags">
+        <span class="skill-tag">SQL Server (SSMS)</span><span class="skill-tag">Python</span><span class="skill-tag">HTML</span><span class="skill-tag">Git / GitHub</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Reporting & Design</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Jaspersoft Studio</span><span class="skill-tag">Data Cleaning</span><span class="skill-tag">Data Preparation</span><span class="skill-tag">CRM Systems</span><span class="skill-tag">Dashboard Design</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Education -->
+<section>
+  <div class="section-label fade-up">Background</div>
+  <h2 class="section-title fade-up">Education</h2>
+  <div class="edu-grid fade-up">
+    <div class="edu-card">
+      <div class="edu-degree">Data Analytics Diploma</div>
+      <div class="edu-school">AMIT Learning</div>
+      <div class="edu-detail">Focused on Excel, SQL, Python, Power BI, and Tableau for data analysis and visualisation.</div>
+      <div class="edu-date">Oct 2025 – Jan 2026</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">Bachelor of Business Information Systems</div>
+      <div class="edu-school">Galala University, Galala City</div>
+      <div class="edu-detail">Thesis: Banking System KPI Dashboard — Awarded Excellent.</div>
+      <div class="edu-date">Oct 2021 – Jun 2025</div>
+    </div>
+  </div>
+</section>
+
+<!-- Schedule -->
+<section id="schedule">
+  <div class="section-label fade-up">Let's Talk</div>
+  <h2 class="section-title fade-up">Schedule a Meeting</h2>
+  <p class="section-subtitle fade-up">Got a project in mind? Book a free 30-minute discovery call directly in my calendar — no back-and-forth emails.</p>
+
+  <div class="cal-wrap fade-up">
+    <div class="cal-header">
+      <div class="cal-header-text">
+        <h3>Book a Free 30-min Call</h3>
+        <p>Pick a time that works for you. The meeting will be confirmed instantly via Cal Video.</p>
+      </div>
+      <a href="https://cal.com/a.-youssef-psvzpj/30min" target="_blank" class="btn-primary">Open in New Tab ↗</a>
+    </div>
+    <!-- Cal.com inline embed -->
+    <div id="cal-embed-container" style="padding:0 24px 24px"></div>
+  </div>
+</section>
+
+<!-- Cal.com embed script -->
+<script type="text/javascript">
+(function (C, A, L) {
+  let p = function (a, ar) { a.q.push(ar); };
+  let d = C.document;
+  C.Cal = C.Cal || function () {
+    let cal = C.Cal;
+    let ar = arguments;
+    if (!cal.loaded) {
+      cal.ns = {};
+      cal.q = cal.q || [];
+      d.head.appendChild(d.createElement("script")).src = A;
+      cal.loaded = true;
+    }
+    if (ar[0] === L) {
+      const api = function () { p(api, arguments); };
+      const namespace = ar[1];
+      api.q = api.q || [];
+      if (typeof namespace === "string") {
+        cal.ns[namespace] = cal.ns[namespace] || api;
+        p(cal.ns[namespace], ar);
+        p(cal, ["initNamespace", namespace]);
+      } else p(cal, ar);
+      return;
+    }
+    p(cal, ar);
+  };
+})(window, "https://app.cal.com/embed/embed.js", "init");
+
+Cal("init", "30min", { origin: "https://cal.com" });
+
+Cal.ns["30min"]("inline", {
+  elementOrSelector: "#cal-embed-container",
+  calLink: "a.-youssef-psvzpj/30min",
+  layout: "month_view",
+  config: {
+    theme: "dark",
+  }
+});
+
+Cal.ns["30min"]("ui", {
+  theme: "dark",
+  hideEventTypeDetails: false,
+  layout: "month_view",
+  cssVarsPerTheme: {
+    dark: {
+      "cal-brand": "#b8f564",
+    }
+  }
+});
+</script>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="contact-wrap fade-up">
+    <div class="section-label" style="margin-bottom:16px">Get in Touch</div>
+    <h2>Let's work together</h2>
+    <p>Open to data analyst, BI developer, and AI automation roles. Available for freelance projects too.</p>
+    <div class="contact-links">
+      <a href="/cdn-cgi/l/email-protection#c4a5a0a5a9a5a8b7aca1aaa5b3bdf484a3a9a5ada8eaa7aba9" class="btn-primary"><span class="__cf_email__" data-cfemail="08696c696569647b606d66697f7138486f65696164266b6765">[email&#160;protected]</span> ↗</a>
+      <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank" class="btn-secondary">WhatsApp ↗</a>
+      <a href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank" class="btn-secondary">Telegram ↗</a>
+      <a href="https://www.linkedin.com/in/adam-alshenawy-600b41267/" target="_blank" class="btn-secondary">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Adam Alshenawy</span>
+  <span>Cairo, Egypt · Data Analyst & AI Automation</span>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><
