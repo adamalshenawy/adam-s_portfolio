@@ -44,8 +44,6 @@ From 9-page Power BI dashboards tracking 464 leads in real time, to AI agents th
 **Programming**
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
-![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
 **AI & Automation**
 
@@ -53,13 +51,6 @@ From 9-page Power BI dashboards tracking 464 leads in real time, to AI agents th
 ![Make](https://img.shields.io/badge/Make-6D00CC?style=for-the-badge&logo=make&logoColor=white)
 ![Manychat](https://img.shields.io/badge/Manychat-00AFF0?style=for-the-badge&logoColor=white)
 ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
-
-**Tools**
-
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-![Jaspersoft](https://img.shields.io/badge/Jaspersoft%20Studio-B22222?style=for-the-badge&logoColor=white)
-![Telegram](https://img.shields.io/badge/Telegram%20Bots-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)
 
 ---
 
