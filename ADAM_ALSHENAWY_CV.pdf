@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- FAVICON -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <meta name="msapplication-TileColor" content="#3626A7" />
+    <meta name="theme-color" content="#f2f0ed" />
+    <meta
+      name="theme-color"
+      content="#FAF8F4
+"
+    />
+    <!-- <meta name="theme-color" content="#f2f0ed" /> -->
+
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:site_name" content="FlowCV" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://flowcv.com/" />
+    <meta property="twitter:url" content="https://flowcv.com/" />
+
+    <meta
+      property="og:title"
+      content="FlowCV | Free Online Resume Builder | CV Maker"
+    />
+    <meta
+      property="twitter:title"
+      content="FlowCV | Free Online Resume Builder | CV Maker"
+    />
+    <meta property="og:site_name" content="FlowCV" />
+    <meta
+      property="og:description"
+      content="Build a professional, ATS-ready resume for free in minutes. Easy to use. Unlimited downloads. No watermarks. No hidden fees. Top-rated by users."
+    />
+    <meta
+      property="twitter:description"
+      content="Build a professional, ATS-ready resume for free in minutes. Easy to use. Unlimited downloads. No watermarks. No hidden fees. Top-rated by users."
+    />
+    <meta
+      property="og:image"
+      content="https://prod.flowcvassets.com/public/flowcv/flowcv-og-image.png"
+    />
+    <meta
+      property="twitter:image"
+      content="https://prod.flowcvassets.com/public/flowcv/flowcv-og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <meta name="robots" content="noindex" />
+    <script type="module" crossorigin src="/assets/index-5ef7e216.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-79d3a1ea.js">
+    <link rel="stylesheet" href="/assets/index-8bf2cdfd.css">
+  
+        <script nonce="70360d46ca8957f7b6245f536a57ebea">
+          window.__AB_TESTS__ = {"signup_modal_msg":"variant","pricing_v7":"control","resume_two_col_header_grow":"control","resume_design_accordion":"variant"};
+        </script>
+      </head>
+  <body>
+    <noscript> You need to enable JavaScript to run this app. </noscript>
+    <div id="root"></div>
+    
+  </body>
+</html>
