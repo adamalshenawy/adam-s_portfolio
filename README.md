@@ -182,7 +182,7 @@ AI-powered simulation tool that trains sales agents through realistic client con
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/201096322218?text=Hello%20I%20am%20interested%20in%20your%20AI%20automation%20and%20data%20analysis%20services)
 [![Telegram](https://img.shields.io/badge/Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/Adam_Alshenawy)
 [![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:adamalshenawy0@gmail.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-B8F564?style=for-the-badge&logoColor=000000)](https://adamalshenawy.github.io)
+[![Portfolio](https://img.shields.io/badge/Portfolio-B8F564?style=for-the-badge&logoColor=000000)](https://adamalshenawy.github.io/adam-s_portfolio/)
 
 </div>
 
